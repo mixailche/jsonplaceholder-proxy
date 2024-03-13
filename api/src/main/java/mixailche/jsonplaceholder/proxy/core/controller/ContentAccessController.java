@@ -19,6 +19,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.client.RestClientException;
 
 import java.net.URI;
 import java.util.List;
@@ -103,6 +104,11 @@ public class ContentAccessController {
     @ExceptionHandler(AccessDeniedException.class)
     public ResponseEntity<Void> handleAccessDenied() {
         return sendStatusCode(HttpStatus.FORBIDDEN);
+    }
+
+    @ExceptionHandler(RestClientException.class)
+    public ResponseEntity<Void> handleRestClientException() {
+        return sendStatusCode(HttpStatus.NOT_FOUND);
     }
 
 }

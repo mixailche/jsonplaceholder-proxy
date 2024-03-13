@@ -65,9 +65,4 @@ public class ContentAccessServiceImpl implements ContentAccessService {
         };
     }
 
-    @ExceptionHandler(RestClientException.class)
-    public ResponseEntity<Void> handleRestClientException() {
-        return sendStatusCode(HttpStatus.NOT_FOUND);
-    }
-
 }
