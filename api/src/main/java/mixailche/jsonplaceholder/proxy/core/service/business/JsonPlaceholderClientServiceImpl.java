@@ -73,17 +73,19 @@ public class JsonPlaceholderClientServiceImpl implements JsonPlaceholderClientSe
 
     private void prepareRequest(ProxyRequestDto request) {
         request.getHeaders().set(HttpHeaders.ACCEPT_ENCODING, "identity");
-        setContentLength(request.getHeaders(), request.getBody());
+        removeContentLength(request.getHeaders());
     }
 
     private ResponseEntity<?> mapResponse(ResponseEntity<String> response) {
         MultiValueMap<String, String> modifiedHeaders = HttpHeaders.writableHttpHeaders(response.getHeaders());
-        setContentLength(modifiedHeaders, response.getBody());
+        removeContentLength(modifiedHeaders);
         return new ResponseEntity<>(response.getBody(), modifiedHeaders, response.getStatusCode());
     }
 
-    private void setContentLength(MultiValueMap<String, String> headers, String body) {
-        headers.set(HttpHeaders.CONTENT_LENGTH, String.valueOf(Objects.requireNonNullElse(body, "").length()));
+    // Content length in the target response and in the forwarded response headers
+    // may differ because of encoding issues
+    private void removeContentLength(MultiValueMap<String, String> headers) {
+        headers.remove(HttpHeaders.CONTENT_LENGTH);
     }
 
     private void saveExecutionResult(ProxyRequestDto request, ResponseEntity<?> response) {
