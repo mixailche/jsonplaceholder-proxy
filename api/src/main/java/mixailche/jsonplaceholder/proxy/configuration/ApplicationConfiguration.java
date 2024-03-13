@@ -22,4 +22,15 @@ public class ApplicationConfiguration {
         }
     }
 
+    @Bean
+    public JwtProperties jwtProperties(@Value("${auth.jwt.secret}") String secret,
+                                       @Value("${auth.jwt.issuer}") String issuer,
+                                       @Value("${auth.jwt.token-lifetime.seconds}") long tokenLifetime) {
+        return JwtProperties.builder()
+                .secret(secret)
+                .issuer(issuer)
+                .tokenLifetime(tokenLifetime)
+                .build();
+    }
+
 }

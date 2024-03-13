@@ -1,11 +1,11 @@
 package mixailche.jsonplaceholder.proxy.core.service.business;
 
+import lombok.RequiredArgsConstructor;
 import mixailche.jsonplaceholder.proxy.common.data.EventResult;
 import mixailche.jsonplaceholder.proxy.common.data.ProxyRequestDto;
 import mixailche.jsonplaceholder.proxy.common.service.business.CachingService;
 import mixailche.jsonplaceholder.proxy.common.service.business.JsonPlaceholderClientService;
 import mixailche.jsonplaceholder.proxy.common.service.db.EventService;
-import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
@@ -18,7 +18,6 @@ import org.springframework.web.client.DefaultResponseErrorHandler;
 import org.springframework.web.client.RestTemplate;
 
 import java.net.URI;
-import java.util.Objects;
 
 @Service
 @RequiredArgsConstructor

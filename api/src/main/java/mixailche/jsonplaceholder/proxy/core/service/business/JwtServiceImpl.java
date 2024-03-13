@@ -4,10 +4,12 @@ import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import lombok.RequiredArgsConstructor;
 import mixailche.jsonplaceholder.proxy.common.data.AccessLevel;
 import mixailche.jsonplaceholder.proxy.common.data.ContentType;
 import mixailche.jsonplaceholder.proxy.common.data.UserAccessDetails;
 import mixailche.jsonplaceholder.proxy.common.service.business.JwtService;
+import mixailche.jsonplaceholder.proxy.configuration.JwtProperties;
 import mixailche.jsonplaceholder.proxy.core.util.MapUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -17,6 +19,7 @@ import java.util.Date;
 import java.util.Map;
 
 @Service
+@RequiredArgsConstructor
 @SuppressWarnings("unused")
 public class JwtServiceImpl implements JwtService {
 
@@ -27,12 +30,10 @@ public class JwtServiceImpl implements JwtService {
     private final JWTVerifier verifier;
 
     @Autowired
-    public JwtServiceImpl(@Value("${auth.jwt.secret}") String secret,
-                          @Value("${auth.jwt.issuer}") String issuer,
-                          @Value("${auth.jwt.lifetime.seconds}") long tokenLifetime) {
-        this.issuer = issuer;
-        this.tokenLifetime = tokenLifetime;
-        this.algorithm = Algorithm.HMAC256(secret);
+    public JwtServiceImpl(JwtProperties properties) {
+        this.issuer = properties.issuer();
+        this.tokenLifetime = properties.tokenLifetime();
+        this.algorithm = Algorithm.HMAC256(properties.issuer());
         this.verifier = JWT.require(algorithm)
                 .withIssuer(issuer)
                 .build();

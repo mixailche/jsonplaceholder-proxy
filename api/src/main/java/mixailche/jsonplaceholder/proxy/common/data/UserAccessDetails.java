@@ -1,13 +1,11 @@
 package mixailche.jsonplaceholder.proxy.common.data;
 
 import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import lombok.Data;
 
 import java.util.Map;
 
-@Getter
-@Setter
+@Data
 @Builder
 public class UserAccessDetails {
     private long userId;

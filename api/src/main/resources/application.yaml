@@ -11,7 +11,7 @@ auth:
   jwt:
     secret: 6SG39ECEWB0IN66IMFH11BM0G6AVHYYO
     issuer: jsonplaceholder-proxy
-    lifetime:
+    token-lifetime:
       seconds: 600
 
 client:

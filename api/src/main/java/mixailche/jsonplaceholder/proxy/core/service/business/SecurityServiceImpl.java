@@ -48,10 +48,7 @@ public class SecurityServiceImpl implements SecurityService {
 
     @Override
     public boolean hasAccess(ContentType contentType, AccessLevel requiredAccess, UserAccessDetails accessDetails) {
-        AccessLevel presentLevel = Objects.requireNonNullElse(
-                accessDetails.getPermissions().get(contentType),
-                AccessLevel.NOTHING
-        );
+        AccessLevel presentLevel = accessDetails.getPermissions().getOrDefault(contentType, AccessLevel.NOTHING);
         return presentLevel.compareTo(requiredAccess) >= 0;
     }
 
