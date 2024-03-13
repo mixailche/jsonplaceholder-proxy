@@ -73,7 +73,7 @@ jooq {
 
             generate {}
             target {
-                packageName = 'com.jsonplaceholder.proxy.jooq'
+                packageName = 'mixailche.jsonplaceholder.proxy.jooq'
                 directory = projectDir.toString() + '/src/main/java'
             }
         }
