@@ -1,0 +1,19 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/json-proxy
+    username: admin
+    password: admin
+
+auth:
+  jwt:
+    secret: 6SG39ECEWB0IN66IMFH11BM0G6AVHYYO
+    issuer: jsonplaceholder-proxy
+    lifetime:
+      seconds: 600
+
+client:
+  jsonplaceholder:
+    uri: http://jsonplaceholder.typicode.com/
