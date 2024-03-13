@@ -4,12 +4,12 @@
 package mixailche.jsonplaceholder.proxy.jooq.tables.records;
 
 
+import java.time.LocalDateTime;
+
 import mixailche.jsonplaceholder.proxy.jooq.enums.AccessLevel;
 import mixailche.jsonplaceholder.proxy.jooq.enums.EventMethod;
 import mixailche.jsonplaceholder.proxy.jooq.enums.EventResult;
 import mixailche.jsonplaceholder.proxy.jooq.tables.Events;
-
-import java.time.LocalDateTime;
 
 import org.jooq.Record1;
 import org.jooq.impl.UpdatableRecordImpl;

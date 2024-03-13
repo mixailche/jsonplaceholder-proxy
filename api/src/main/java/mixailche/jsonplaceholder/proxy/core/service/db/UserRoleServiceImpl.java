@@ -67,9 +67,9 @@ public class UserRoleServiceImpl implements UserRoleService {
         };
         // map to business entity
         return switch (dbColumnValue) {
-            case mixailche.jsonplaceholder.proxy.jooq.enums.AccessLevel.NOTHING -> AccessLevel.NOTHING;
-            case mixailche.jsonplaceholder.proxy.jooq.enums.AccessLevel.VIEW    -> AccessLevel.VIEW;
-            case mixailche.jsonplaceholder.proxy.jooq.enums.AccessLevel.EDIT    -> AccessLevel.EDIT;
+            case NOTHING -> AccessLevel.NOTHING;
+            case VIEW    -> AccessLevel.VIEW;
+            case EDIT    -> AccessLevel.EDIT;
         };
     }
 

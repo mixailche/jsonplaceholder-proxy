@@ -4,6 +4,11 @@
 package mixailche.jsonplaceholder.proxy.jooq.tables;
 
 
+import java.time.LocalDateTime;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import mixailche.jsonplaceholder.proxy.jooq.Keys;
 import mixailche.jsonplaceholder.proxy.jooq.Public;
 import mixailche.jsonplaceholder.proxy.jooq.enums.AccessLevel;
@@ -11,11 +16,6 @@ import mixailche.jsonplaceholder.proxy.jooq.enums.EventMethod;
 import mixailche.jsonplaceholder.proxy.jooq.enums.EventResult;
 import mixailche.jsonplaceholder.proxy.jooq.tables.Users.UsersPath;
 import mixailche.jsonplaceholder.proxy.jooq.tables.records.EventsRecord;
-
-import java.time.LocalDateTime;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
 
 import org.jooq.Condition;
 import org.jooq.Field;

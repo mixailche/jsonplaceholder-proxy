@@ -4,15 +4,15 @@
 package mixailche.jsonplaceholder.proxy.jooq;
 
 
+import java.util.Arrays;
+import java.util.List;
+
 import mixailche.jsonplaceholder.proxy.jooq.tables.Databasechangelog;
 import mixailche.jsonplaceholder.proxy.jooq.tables.Databasechangeloglock;
 import mixailche.jsonplaceholder.proxy.jooq.tables.Events;
 import mixailche.jsonplaceholder.proxy.jooq.tables.Roles;
 import mixailche.jsonplaceholder.proxy.jooq.tables.UserRoles;
 import mixailche.jsonplaceholder.proxy.jooq.tables.Users;
-
-import java.util.Arrays;
-import java.util.List;
 
 import org.jooq.Catalog;
 import org.jooq.Table;

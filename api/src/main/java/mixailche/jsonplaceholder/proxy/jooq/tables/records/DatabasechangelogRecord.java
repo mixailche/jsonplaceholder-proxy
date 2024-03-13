@@ -4,9 +4,9 @@
 package mixailche.jsonplaceholder.proxy.jooq.tables.records;
 
 
-import mixailche.jsonplaceholder.proxy.jooq.tables.Databasechangelog;
-
 import java.time.LocalDateTime;
+
+import mixailche.jsonplaceholder.proxy.jooq.tables.Databasechangelog;
 
 import org.jooq.impl.TableRecordImpl;
 

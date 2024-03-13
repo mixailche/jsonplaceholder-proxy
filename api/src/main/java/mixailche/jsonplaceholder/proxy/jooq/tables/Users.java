@@ -4,14 +4,15 @@
 package mixailche.jsonplaceholder.proxy.jooq.tables;
 
 
-import mixailche.jsonplaceholder.proxy.jooq.Keys;
-import mixailche.jsonplaceholder.proxy.jooq.Public;
-import mixailche.jsonplaceholder.proxy.jooq.tables.UserRoles.UserRolesPath;
-import mixailche.jsonplaceholder.proxy.jooq.tables.records.UsersRecord;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+
+import mixailche.jsonplaceholder.proxy.jooq.Keys;
+import mixailche.jsonplaceholder.proxy.jooq.Public;
+import mixailche.jsonplaceholder.proxy.jooq.tables.Events.EventsPath;
+import mixailche.jsonplaceholder.proxy.jooq.tables.UserRoles.UserRolesPath;
+import mixailche.jsonplaceholder.proxy.jooq.tables.records.UsersRecord;
 
 import org.jooq.Condition;
 import org.jooq.Field;
@@ -152,15 +153,15 @@ public class Users extends TableImpl<UsersRecord> {
         return Arrays.asList(Keys.USERS_LOGIN_KEY);
     }
 
-    private transient Events.EventsPath _events;
+    private transient EventsPath _events;
 
     /**
      * Get the implicit to-many join path to the <code>public.events</code>
      * table
      */
-    public Events.EventsPath events() {
+    public EventsPath events() {
         if (_events == null)
-            _events = new Events.EventsPath(this, null, Keys.EVENTS__EVENTS_USER_ID_FKEY.getInverseKey());
+            _events = new EventsPath(this, null, Keys.EVENTS__EVENTS_USER_ID_FKEY.getInverseKey());
 
         return _events;
     }

@@ -4,13 +4,15 @@
 package mixailche.jsonplaceholder.proxy.jooq.tables;
 
 
-import mixailche.jsonplaceholder.proxy.jooq.Keys;
-import mixailche.jsonplaceholder.proxy.jooq.Public;
-import mixailche.jsonplaceholder.proxy.jooq.tables.records.UserRolesRecord;
-
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+
+import mixailche.jsonplaceholder.proxy.jooq.Keys;
+import mixailche.jsonplaceholder.proxy.jooq.Public;
+import mixailche.jsonplaceholder.proxy.jooq.tables.Roles.RolesPath;
+import mixailche.jsonplaceholder.proxy.jooq.tables.Users.UsersPath;
+import mixailche.jsonplaceholder.proxy.jooq.tables.records.UserRolesRecord;
 
 import org.jooq.Condition;
 import org.jooq.Field;
@@ -134,26 +136,26 @@ public class UserRoles extends TableImpl<UserRolesRecord> {
         return Arrays.asList(Keys.USER_ROLES__USER_ROLES_USER_ID_FKEY, Keys.USER_ROLES__USER_ROLES_ROLE_ID_FKEY);
     }
 
-    private transient Users.UsersPath _users;
+    private transient UsersPath _users;
 
     /**
      * Get the implicit join path to the <code>public.users</code> table.
      */
-    public Users.UsersPath users() {
+    public UsersPath users() {
         if (_users == null)
-            _users = new Users.UsersPath(this, Keys.USER_ROLES__USER_ROLES_USER_ID_FKEY, null);
+            _users = new UsersPath(this, Keys.USER_ROLES__USER_ROLES_USER_ID_FKEY, null);
 
         return _users;
     }
 
-    private transient Roles.RolesPath _roles;
+    private transient RolesPath _roles;
 
     /**
      * Get the implicit join path to the <code>public.roles</code> table.
      */
-    public Roles.RolesPath roles() {
+    public RolesPath roles() {
         if (_roles == null)
-            _roles = new Roles.RolesPath(this, Keys.USER_ROLES__USER_ROLES_ROLE_ID_FKEY, null);
+            _roles = new RolesPath(this, Keys.USER_ROLES__USER_ROLES_ROLE_ID_FKEY, null);
 
         return _roles;
     }

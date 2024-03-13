@@ -4,12 +4,12 @@
 package mixailche.jsonplaceholder.proxy.jooq.tables;
 
 
+import java.time.LocalDateTime;
+import java.util.Collection;
+
 import mixailche.jsonplaceholder.proxy.jooq.Keys;
 import mixailche.jsonplaceholder.proxy.jooq.Public;
 import mixailche.jsonplaceholder.proxy.jooq.tables.records.DatabasechangeloglockRecord;
-
-import java.time.LocalDateTime;
-import java.util.Collection;
 
 import org.jooq.Condition;
 import org.jooq.Field;
