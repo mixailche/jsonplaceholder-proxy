@@ -1,4 +1,4 @@
-## Proxy Json Pacleholder
+## Proxy Json Placeholder
 
 ---
 
